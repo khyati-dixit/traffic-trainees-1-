@@ -1,0 +1,304 @@
+﻿@model WebApplication3.Models.ResultViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@using (Html.BeginForm("Create", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <html>
+    <head>
+        <style>
+        </style>
+    </head>
+    <body>
+        <form>
+            <fieldset>
+                <legend style="text-align:center">User Details Form</legend>
+            </fieldset>
+            <hr>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <table class="tab">
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.FullName, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter email" } })
+                                @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="UserEmail">Email address</label>
+                            <input type="email" class="form-control" id="UserEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="PasswordHash">Password</label>
+                            <input type="password" class="form-control" id="PasswordHash" placeholder="Password">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="CivilIdNumber">Civil Id Number</label>
+                            <input type="number" class="form-control" id="CivilIdNumber" aria-describedby="emailHelp" placeholder="Enter ID number">
+                            <small id="emailHelp" class="form-text text-muted">Enter Civil Id Number here</small>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="DOB">Date OF Birth</label>
+                            <input type="date" class="form-control" id="DOB" aria-describedby="emailHelp" placeholder="Enter DOB">
+                            <small id="emailHelp" class="form-text text-muted">Enter Date Of Birth here</small>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="MobileNo">Mobile Number</label>
+                            <input type="number" class="form-control" id="NobileNo" aria-describedby="emailHelp" placeholder="Enter number">
+                            <small id="emailHelp" class="form-text text-muted">Enter Contact Details here</small>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="Address">Address</label>
+                            <input type="text" class="form-control" id="Address" aria-describedby="emailHelp" placeholder="Enter Address">
+                            <small id="emailHelp" class="form-text text-muted">Enter Permanent Home Addess here</small>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="RoleId">Role ID</label>
+                            <input type="number" class="form-control" id="RoleId" aria-describedby="emailHelp" placeholder="Enter Role ID">
+                            <small id="emailHelp" class="form-text text-muted">Enter Role ID here</small>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="ProfilePic">Profile Pic</label>
+                            <input type="file" class="form-control-file" id="ProfilePic" aria-describedby="fileHelp">
+                            <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+                        </div>
+
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="CreatedDate">Created Date</label>
+                            <input type="datetime" class="form-control" id="CreatedDate" aria-describedby="emailHelp" placeholder="Enter DATE">
+                            <small id="emailHelp" class="form-text text-muted">Enter Created Date here</small>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="ModifiedDate">Modified Date</label>
+                            <input type="datetime" class="form-control" id="ModifiedDate" aria-describedby="emailHelp" placeholder="Enter Modified Date">
+                            <small id="emailHelp" class="form-text text-muted">Enter Modified Date here</small>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="IsNotificationActive">Is Notification Active</label>
+
+                            <select class="form-control" id="IsNotificationActive">
+                                <option>Not Yet</option>
+                                <option>True</option>
+                                <option>False</option>
+
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="IsActive">Is Active</label>
+                            <select class="form-control" id="IsActive">
+                                <option>Not Yet</option>
+                                <option>True</option>
+                                <option>False</option>
+
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+
+                        <div class="form-group">
+                            <label for="DeviceId">Device Id</label>
+                            <input type="number" class="form-control" id="DeviceId" aria-describedby="emailHelp" placeholder="Enter Device Id">
+                            <small id="emailHelp" class="form-text text-muted">Enter Device Id here</small>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="DeviceType">Device Type</label>
+                            <input type="text" class="form-control" id="DeviceType" aria-describedby="emailHelp" placeholder="Enter Device Type">
+                            <small id="emailHelp" class="form-text text-muted">Enter Device Type here</small>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="FcmToken">Fcm Token</label>
+                            <input type="text" class="form-control" id="FcmToken" aria-describedby="emailHelp" placeholder="Enter Fcm Token">
+                            <small id="emailHelp" class="form-text text-muted">Enter Device Type here</small>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="Verify">Verified!</label>
+                            <select class="form-control" id="Verify">
+                                <option>Not Yet</option>
+                                <option>True</option>
+                                <option>False</option>
+
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+
+                        <div class="form-group">
+                            <label for="VerifiedBy">Verified By</label>
+                            <input type="text" class="form-control" id="Verified By" aria-describedby="emailHelp" placeholder="Enter Verified by">
+                            <small id="emailHelp" class="form-text text-muted">Enter Name from which you verified here.</small>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="Area">Area Name</label>
+                            <input type="text" class="form-control" id="Area" aria-describedby="emailHelp" placeholder="Enter your Area">
+                            <small id="emailHelp" class="form-text text-muted">Enter Area here.</small>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="Block">Fcm Token</label>
+                            <input type="text" class="form-control" id="Block" aria-describedby="emailHelp" placeholder="Enter Block">
+                            <small id="emailHelp" class="form-text text-muted">Enter From which block you are here.</small>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="Street">Street</label>
+                            <input type="text" class="form-control" id="Street" aria-describedby="emailHelp" placeholder="Enter Street Name">
+                            <small id="emailHelp" class="form-text text-muted">Enter Street here</small>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="Housing">Housing</label>
+                            <input type="text" class="form-control" id="Housing" aria-describedby="emailHelp" placeholder="Enter Housing">
+                            <small id="emailHelp" class="form-text text-muted">Enter Housing here</small>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="Floor">Fcm Token</label>
+                            <input type="text" class="form-control" id="Floor" aria-describedby="emailHelp" placeholder="Enter Floor">
+                            <small id="emailHelp" class="form-text text-muted">Enter your Floor no. here</small>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="NewPass">New Pass</label>
+                            <input type="text" class="form-control" id="NewPass" aria-describedby="emailHelp" placeholder="Enter new Pass ">
+                            <small id="emailHelp" class="form-text text-muted">Enter New Pass Details here.</small>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="ConPass">Confirm Pass</label>
+                            <input type="text" class="form-control" id="ConPass" aria-describedby="emailHelp" placeholder="Enter Confirm Pass">
+                            <small id="emailHelp" class="form-text text-muted">Enter Confirm pass Details here.</small>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="Judda">Judda</label>
+                            <input type="text" class="form-control" id="Judda" aria-describedby="emailHelp" placeholder="Enter Judda">
+                            <small id="emailHelp" class="form-text text-muted">Enter Judda here</small>
+
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="Reason">Reason</label>
+                            <input type="text" class="form-control" id="Reason" aria-describedby="emailHelp" placeholder="Enter Reason">
+                            <small id="emailHelp" class="form-text text-muted">Enter your Reason here.</small>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="ActivatedBy">Activated By</label>
+                            <input type="text" class="form-control" id="ActivatedBy" aria-describedby="emailHelp" placeholder="Enter Activated by">
+                            <small id="emailHelp" class="form-text text-muted">Enter Activated By here</small>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="VerifiedDate">Verified Date</label>
+                            <input type="datetime" class="form-control" id="VerifiedDate" aria-describedby="emailHelp" placeholder="Enter Verified Date">
+                            <small id="emailHelp" class="form-text text-muted">Enter Verified Date here</small>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="ActivatedDate">Activated Date</label>
+                            <input type="datetime" class="form-control" id="ActivatedDate" aria-describedby="emailHelp" placeholder="Enter Activated Date">
+                            <small id="emailHelp" class="form-text text-muted">Enter Activated Date here</small>
+                        </div>
+                    </td>
+                <tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <button type="button" class="btn btn-outline-success">@Html.ActionLink("List", "About")</button>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <button type="submit" class="btn btn-outline-primary">Submit</button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+
+
+</html>
+}
